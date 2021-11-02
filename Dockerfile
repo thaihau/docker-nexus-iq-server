@@ -83,17 +83,18 @@ RUN cd ${TEMP} \
 && tar -xvf nexus-iq-server-${IQ_SERVER_VERSION}-bundle.tar.gz \
 && mv nexus-iq-server-${IQ_SERVER_VERSION}.jar ${IQ_HOME} \
 && cd ${IQ_HOME} \
-&& rm -rf ${TEMP} \
-\
+&& rm -rf ${TEMP} 
+#\
+#\
 # Add group and user
-&& groupadd -g ${GID} nexus \
-&& adduser -u ${UID} -d ${IQ_HOME} -c "Nexus IQ user" -g nexus -s /bin/false nexus \
-\
+#&& groupadd -g ${GID} nexus \
+#&& adduser -u ${UID} -d ${IQ_HOME} -c "Nexus IQ user" -g nexus -s /bin/false nexus \
+#\
 # Change owner to nexus user
-&& chown -R nexus:nexus ${IQ_HOME} \
-&& chown -R nexus:nexus ${SONATYPE_WORK} \
-&& chown -R nexus:nexus ${CONFIG_HOME} \
-&& chown -R nexus:nexus ${LOGS_HOME}
+#&& chown -R nexus:nexus ${IQ_HOME} \
+#&& chown -R nexus:nexus ${SONATYPE_WORK} \
+#&& chown -R nexus:nexus ${CONFIG_HOME} \
+#&& chown -R nexus:nexus ${LOGS_HOME}
 
 # This is where we will store persistent data
 VOLUME ${SONATYPE_WORK}
